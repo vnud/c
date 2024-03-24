@@ -1,542 +1,622 @@
-{\rtf1\ansi\ansicpg1252\cocoartf2759
-\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fnil\fcharset0 HelveticaNeue;}
-{\colortbl;\red255\green255\blue255;}
-{\*\expandedcolortbl;;}
-\paperw11900\paperh16840\margl1440\margr1440\vieww29200\viewh18400\viewkind0
-\deftab560
-\pard\pardeftab560\slleading20\partightenfactor0
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h4> Pascal’s triangle  </h4>
+    <p>
+        using System; class Pascal 
+        { 
+            public static void Main() 
+            { 
+                int[,] arr = new int[8, 8]; 
+                Console.WriteLine("Pascal Triangle : ");         for (int i = 0; i < 5; i++) 
+                { 
+                    for (int k = 5; k > i; k--) 
+                    {    
+                        Console.Write(" "); 
+                    } 
+          
+                    for (int j = 0; j < i; j++) 
+                    { 
+                        if (j == 0 || i == j) 
+                        { 
+                            arr[i, j] = 1; 
+                        }                 else                 { 
+                            arr[i, j] = arr[i - 1, j] + arr[i - 1, j - 1]; 
+                        } 
+                        Console.Write(arr[i, j] + " "); 
+                    } 
+                    Console.ReadLine(); 
+                } 
+            } 
+        } 
+        
+    </p>
 
-\f0\fs26 \cf0 \
-<html>\
-<head>\
-<title>\
-</title>\
-</head>\
-<body>\
-\pard\pardeftab560\slleading20\pardirnatural\partightenfactor0
-\cf0 \
-\pard\pardeftab560\slleading20\partightenfactor0
-\cf0 <h4>amstrong</h4>\
-<p>\
-using System;\
-class ArmstrongNumbers\
-\{\
-    static void Main(string[] args)\
-    \{\
-        Console.WriteLine("Armstrong Number between 2 and 2000:");\
-        for(int number=2;number<=2000;number++)\
-        \{\
-            if(IsArmstongNumber(number))\
-            \{\
-                Console.WriteLine(number);\
-            \}\
-        \}\
-    \}\
-    static bool IsArmstongNumber(int num)\
-    \{\
-        int OriginalNum=num;\
-        int Sum=0;\
-        int numDigits=CountDigits(num);\
-        while(num>0)\
-        \{\
-            int digit=num%10;\
-            Sum+=(int)Math.Pow(digit,numDigits);\
-            num/=10;\
-        \}\
-        return Sum==OriginalNum;\
-    \}\
-    static int CountDigits(int num)\
-    \{\
-        int count=0;\
-        while(num>0)\
-        \{\
-            num/=10;\
-            count++;\
-        \}\
-        return count;\
-    \}\
-\}\
-\
-\
-</p>\
-\
-<h4>complex</h4>\
-<p>\
-using System;\
-class Complex\
-\{\
-    private double real;\
-    private double img;\
-\
-    public Complex(double real,double img)\
-    \{\
-        this.real=real;\
-        this.img=img;\
-    \}\
-    public static Complex operator +(Complex c1,Complex c2)\
-    \{\
-        double realsum=c1.real+c2.real;\
-        double imgsum=c1.img+c2.img;\
-        return new Complex(realsum,imgsum);\
-    \}\
-    public void Display()\
-    \{\
-        Console.WriteLine("Result = "+real+" + "+img+"i");\
-    \}\
-\}\
-class Program\
-\{\
-    static void Main()\
-    \{\
-        Console.Write("enter the 1st real part: ");\
-        double real1=double.Parse(Console.ReadLine());\
-        Console.Write("enter the 1st imaginary part: ");\
-        double img1=double.Parse(Console.ReadLine());\
-        Console.Write("enter the 2nd real part: ");\
-        double real2=double.Parse(Console.ReadLine());\
-        Console.Write("enter the 2st imaginart part: ");\
-        double img2=double.Parse(Console.ReadLine());\
-\
-        Complex cp1=new Complex(real1,img1);\
-        Complex cp2=new Complex(real2,img2);\
-        Complex res= cp1+cp2;\
-        Console.WriteLine("\\n Sum of the two Complex number is: ");\
-        res.Display();\
-    \}\
-\}\
-</p>\
-\
-<h4> create erase</h4>\
-\pard\pardeftab560\slleading20\pardirnatural\partightenfactor0
-\cf0 \
-\pard\pardeftab560\slleading20\partightenfactor0
-\cf0 <p>\
-using System;\
-class Shape\{\
-\
-    public virtual void Draw()\
-    \{\
-        Console.WriteLine("Drawing a generic shape");\
-    \}\
-    public virtual void Erase()\
-    \{\
-        Console.WriteLine("Erasing a generic shape");\
-    \}\
-\}\
-class Circle : Shape\
-\{\
-    public override void Draw()\
-    \{\
-        Console.WriteLine("Drawing a circle");\
-    \}\
-    public override void Erase()\
-    \{\
-        Console.WriteLine("Erasing a circle");\
-    \}\
-\}\
-class Triangle : Shape\
-\{\
-    public override void Draw()\
-    \{\
-        Console.WriteLine("Drawing a Triangle");\
-    \}\
-    public override void Erase()\
-    \{\
-        Console.WriteLine("Erasing a Triangle");\
-    \}\
-\}\
-class Square : Shape\
-\{\
-    public override void Draw()\
-    \{\
-        Console.WriteLine("Drawing a Square");\
-    \}\
-    public override void Erase()\
-    \{\
-        Console.WriteLine("Erasing a Square");\
-    \}\
-\}\
-class Program\
-\{\
-    static void Main()\
-    \{\
-        Shape[] shapes=new Shape[]\
-        \{\
-            new Circle(),\
-            new Triangle(),\
-            new Square()\
-        \};\
-        Console.WriteLine("Demonstrating Polymorphism");\
-        foreach(Shape shape in shapes)\
-        \{\
-            shape.Draw();\
-            shape.Erase();\
-        \}\
-        \}\
-    \}\
-</p>\
-<h4>devision by zero</h4>\
-<p>\
-using System;\
-class Program\
-\{\
-    static void Main()\
-    \{\
-        //Division by Zero Exception\
-        try\
-        \{\
-            int numerator=10;\
-            int denominator=0;\
-            int result=numerator/denominator;\
-            Console.WriteLine("Result of division:"+result);\
-        \}\
-        catch(DivideByZeroException ex)\
-        \{\
-            Console.WriteLine("Division by Zero Exception:"+ex.Message);\
-        \}\
-        //Index Out of Range Exception\
-        try\
-        \{\
-            int[] numbers=\{1,2,3,4,5\};\
-            int index=10;\
-            int value=numbers[index];\
-            Console.WriteLine("Value at index"+index+":"+value);\
-        \}\
-        catch(IndexOutOfRangeException ex)\
-        \{\
-            Console.WriteLine("Index Out of Range Exception:"+ex.Message);\
-        \}\
-        Console.ReadLine();\
-    \}\
-\}\
-        \
-        \
-    \
-</p>\
-<h4>floyds</h4>\
-<p>\
-using System;\
-class FloydsTriangle \
-\{\
-    static void Main()\
-    \{\
-        Console.WriteLine("Enter the number of rows for Floyd's Triangle:");\
-        int numRows =Convert.ToInt32(Console.ReadLine());\
-        int[][] triangle = new int[numRows][];\
-        int currentNumber = 1;\
-        for (int i=0; i<numRows;i++)\
-        \{\
-            triangle[i] = new int[i+1];\
-            for (int j=0; j<=i;j++)\
-            \{\
-                triangle[i][j] = currentNumber++;\
-            \}\
-        \}\
-        Console.WriteLine("Floyd's Triangle:");\
-         for (int i=0;i<numRows;i++)\
-         \{\
-            for (int j=0; j<=i;j++)\
-            \{\
-                Console.Write(triangle[i][j]);\
-            \}\
-            Console.WriteLine();\
-         \}\
-    \}\
-\} \
-</p>\
-<h4>pascal triangle</h4>\
-<p>\
-using System;\
-class PascalTriangle\
-\{\
-    static void Main()\
-    \{\
-        Console.WriteLine("Enter the number of rows for Pascal's Triangle:");\
-        int numRows=Convert.ToInt32(Console.ReadLine());\
-\
-        int[][]pascalTriangle=GeneratePascalTriangle(numRows);\
-\
-        Console.WriteLine("Pascal's Triangle:");\
-        PrintPascalTriangle(pascalTriangle);\
-    \}\
-    static int[][] GeneratePascalTriangle(int numRows)\
-    \{\
-        int[][] triangle=new int[numRows][];\
-\
-        for(int i=0;i<numRows;i++)\
-        \{\
-            triangle[i]=new int[i+1];\
-            triangle[i][0]=1;\
-\
-            for(int j=1;j<i;j++)\
-            \{\
-                triangle[i][j]=triangle[i-1][j-1]+triangle[i-1][j];\
-            \}\
-\
-            triangle[i][i]=1;\
-        \}\
-        return triangle;\
-    \}\
-    static void PrintPascalTriangle(int[][] triangle)\
-    \{\
-        int numRows=triangle.Length;\
-\
-        for(int i=0;i<numRows;i++)\
-        \{\
-            Console.Write(new string(' ',(numRows-i-1)*3));\
-\
-            for(int j=0;j<=i;j++)\
-            \{\
-                Console.Write(string.Format("\{0,-6\}",triangle[i][j]));\
-            \}\
-            Console.WriteLine();\
-        \}\
-    \}\
-\}\
-</p>\
-\
-\
-<h4>push and pop</h4>\
-<p>\
-using System;\
-class Stack\
-\{\
- private int[] data;\
- private int top;\
- private int size;\
- public Stack(int size)\
- \{\
- this.size = size;\
- this.data = new int[size];\
- this.top = -1;\
- \}\
- public int Size\
- \{\
- get \{ return size; \}\
- \}\
- public void Push(int value)\
- \{\
- if (top == size - 1)\
- \{\
- Console.WriteLine("Stack overflow. Cannot push element \{0\}.", value);\
- \}\
- else\
- \{\
- top++;\
- data[top] = value;\
- Console.WriteLine("Pushed \{0\} onto the stack.", value);\
- \}\
- \}\
- public void Pop()\
-\{\
- if (top == -1)\
- \{\
- Console.WriteLine("Stack underflow. Cannot pop from an empty stack.");\
- \}\
- else\
- \{\
- int poppedValue = data[top];\
- top--;\
- Console.WriteLine("Popped \{0\} from the stack.", poppedValue);\
- \}\
- \}\
-\}\
-class Program\
-\{\
- static void Main()\
- \{\
- Stack myStack = new Stack(5);\
- myStack.Push(10);\
- myStack.Push(20);\
- myStack.Push(30);\
- myStack.Pop();\
- myStack.Pop();\
- myStack.Pop();\
- myStack.Pop();\
- Console.ReadLine();\
- \}\
-\}\
-\
-</p>\
- \
-<h4>read text</h4>\
-<p>using System;\
-using System.IO;\
-class Program\
-\{\
-    static void Main()\
-    \{\
-        string sourceFilePath = "source.txt";\
-        string destinationFilePath = "dest.txt";\
-        Console.WriteLine("Contents of source file before copy:");\
-        DisplayFileContents(sourceFilePath);\
-        Console.WriteLine("Contents of destination file before copy:");\
-        DisplayFileContents(destinationFilePath);\
-        CopyFileContents(sourceFilePath, destinationFilePath);\
-        Console.WriteLine("\\nContents of source file after copy:");\
-        DisplayFileContents(sourceFilePath);\
-        Console.WriteLine("\\nContents of destination file after copy:");\
-        DisplayFileContents(destinationFilePath);\
-    \}\
-    static void CopyFileContents(string sourceFilePath, string destinationFilePath)\
-    \{\
-        try\
-        \{\
-          \
-            string fileContents = File.ReadAllText(sourceFilePath);\
-            \
-            File.WriteAllText(destinationFilePath, fileContents);\
-            Console.WriteLine("\\nFile copied successfully!");\
-        \}\
-        catch (Exception ex)\
-        \{\
-            Console.WriteLine($"Error while copying file: \{ex.Message\}");\
-        \}\
-    \}\
-    static void DisplayFileContents(string filePath)\
-    \{\
-        try\
-        \{\
-            \
-            string fileContents = File.ReadAllText(filePath);\
-            Console.WriteLine($"File: \{filePath\}\\nContent:\\n\{fileContents\}");\
-        \}\
-        catch (FileNotFoundException)\
-                \{\
-            Console.WriteLine($"File '\{filePath\}' not found.");\
-        \}\
-        catch (Exception ex)\
-        \{\
-            Console.WriteLine($"Error while reading file: \{ex.Message\}");\
-        \}\
-    \}\
-\}\
-</p>\
-<h4>resize height and width</h4>\
-<p>\
-using System;\
-public interface Resizable\
-\{\
-    void resizeWidth(int width);\
-    void resizeHeight(int height);\
-\}\
-public class Rectangle:Resizable\{\
-    private int width;\
-    private int height;\
-    public Rectangle(int width,int height)\
-    \{\
-        this.width=width;\
-        this.height=height;\
-    \}\
-    public void resizeWidth(int newWidth)\
-    \{\
-        if(newWidth>0)\
-        \{\
-            width=newWidth;\
-            Console.WriteLine($"Width resized to:\{width\}");\
-        \}\
-        else\{\
-            Console.WriteLine("Width must be greater than 0");\
-        \}\
-    \}\
-    public void resizeHeight(int newHeight)\
-    \{\
-        if(newHeight>0)\
-        \{\
-            height=newHeight;\
-            Console.WriteLine($"Height resized to:\{height\}");\
-        \}\
-        else\{\
-            Console.WriteLine("Height must be greater than 0");\
-        \}\
-    \}\
-    public void DisplayDimensions()\
-    \{\
-        Console.WriteLine($"Current Dimesions:Width=\{width\},Height=\{height\}");\
-    \} \
-\}\
-class Program\{\
-    static void Main()\
-    \{\
-        Rectangle myRectangle=new Rectangle(5,8);\
-        Console.WriteLine("Initial Dimensions:");\
-        myRectangle.DisplayDimensions();\
-        myRectangle.resizeWidth(10);\
-        myRectangle.resizeHeight(12);\
-        Console.WriteLine("\\nDimensions after resizing:");\
-        myRectangle.DisplayDimensions();\
-    \}\
-\}\
-</p>\
-<h4>simple calc</h4>\
-<p>using System;\
-    class Calculator\
-    \{\
-        public static void Main(String[] args)\
-        \{\
-            char op;\
-            Console.WriteLine("Enter the first number:");\
-            double num1=Convert.ToInt32(Console.ReadLine());\
-            Console.WriteLine("Enter the second number:");\
-            double num2=Convert.ToInt32(Console.ReadLine());\
-            Console.WriteLine("Enter the operation(+,-,*,%,/)");\
-            op=Convert.ToChar(Console.ReadLine());\
-            double res=0;\
-            switch(op)\
-            \{\
-                case '+':\
-                res=num1+num2;\
-                break;\
-                case '-':\
-                res=num1-num2;\
-                break;\
-                case '*':\
-                res=num1*num2;\
-                break;\
-                case '%':\
-                res=num1%num2;\
-                break;\
-                case '/':\
-                res=num1/num2;\
-                break;\
-                default:\
-                Console.WriteLine("Invalid operator");\
-                break;\
-            \}\
-            Console.WriteLine("result is:\{0\}",res);\
-            Console.ReadLine();\
-\
-        \}\
-    \}\
-</p>\
-<h4>substring</h4>\
-<p>\
-using System;\
-class substring\
-\{\
-    static void Main(String[] args)\
-    \{\
-        Console.Write("Enter a string:");\
-        String inputstring=Console.ReadLine();\
-        ListAllSubstrings(inputstring);\
-        Console.ReadLine();\
-    \}\
-    static void ListAllSubstrings(String input)\
-    \{\
-        Console.WriteLine("All Substrings of the given String:");\
-        for(int i=0;i<input.Length;i++)\
-        \{\
-            for(int j=i+1;j<=input.Length;j++)\
-            \{\
-                String substring=input.Substring(i,j-i);\
-                Console.WriteLine(substring);\
-            \}\
-        \}\
-    \}\
-\}\
-</p>\
-\
-\
-</body>\
-</html>\
-}
+    <h4>Floyds Triangle</h4>
+    <p>
+        using System; 
+ 
+class FloydsTriangle 
+{ 
+    static void Main() 
+    { 
+        Console.WriteLine("Enter the number of rows for Floyd's Triangle:");         int numRows = Convert.ToInt32(Console.ReadLine()); 
+ 
+        // Create a jagged array to store Floyd's Triangle         int[][] triangle = new int[numRows][]; 
+ 
+        // Populate the jagged array with Floyd's Triangle values         int currentNumber = 1;         for (int i = 0; i < numRows; i++) 
+        { 
+            triangle[i] = new int[i + 1]; // Allocate space for each row 
+ 
+            for (int j = 0; j <= i; j++) 
+            { 
+                triangle[i][j] = currentNumber++; 
+            } 
+        } 
+ 
+        // Print Floyd's Triangle 
+        Console.WriteLine("Floyd's Triangle:"); 
+ 
+        for (int i = 0; i < numRows; i++) 
+        { 
+            for (int j = 0; j <= i; j++) 
+            { 
+                Console.Write($"{triangle[i][j]} "); 
+            } 
+            Console.WriteLine(); 
+        } 
+    } 
+} 
+</p>
+<h4>read a text file and copy the file contents </h4>
+<p>using System; 
+    using System.IO; 
+     
+    class FileCopy 
+    { 
+        static void Main () 
+        { 
+            Console.WriteLine("Enter the path of the source text file:");         string sourceFilePath = Console.ReadLine(); 
+     
+            Console.WriteLine("Enter the path of the destination text file:");         string destinationFilePath = Console.ReadLine(); 
+             try 
+            { 
+                // Ensure the destination directory exists 
+                Directory.CreateDirectory(Path.GetDirectoryName(destinationFilePath)); 
+     
+                // Read the contents of the source file 
+                string fileContents = File.ReadAllText(sourceFilePath); 
+     
+                // Write the contents to the destination file 
+                File.WriteAllText(destinationFilePath, fileContents); 
+     
+                Console.WriteLine("File copy successful!"); 
+            } 
+            catch (Exception ex) 
+            { 
+                Console.WriteLine($"Error: {ex.Message}"); 
+            } 
+        } 
+    } 
+    </p>
+    <h4>Push and Pop</h4>
+<p>using System; 
+ 
+    class StackImplementation 
+    { 
+        static void Main() 
+        { 
+            // Create a stack instance 
+            Stack stack = new Stack(); 
+     
+            while (true) 
+            { 
+                Console.WriteLine("Choose an option:"); 
+                Console.WriteLine("1. Push"); 
+                Console.WriteLine("2. Pop"); 
+                Console.WriteLine("3. Display"); 
+                Console.WriteLine("4. Exit"); 
+     
+                int choice = GetChoice(); 
+     
+                switch (choice) 
+                {                 case 1: 
+                        Console.WriteLine("Enter the value to push:");                     int valueToPush = GetValue(); 
+                        stack.Push(valueToPush);                     break; 
+                     case 2: 
+                        int poppedValue = stack.Pop(); 
+                        if (poppedValue != -1) 
+                            Console.WriteLine($"Popped element: {poppedValue}");                     break; 
+                     case 3:                     stack.Display(); 
+                        break; 
+                     case 4: 
+                        Console.WriteLine("Exiting the program."); 
+                        Environment.Exit(0); 
+                        break; 
+                     default: 
+                        Console.WriteLine("Invalid choice. Please choose a valid option.");                     break; 
+                } 
+            } 
+        } 
+     
+        static int GetChoice() 
+        { 
+            int choice; 
+            while (!int.TryParse(Console.ReadLine(), out choice)) 
+            { 
+                Console.WriteLine("Invalid input. Please enter a number."); 
+            } 
+            return choice; 
+        } 
+     
+        static int GetValue() 
+        {         int value; 
+            while (!int.TryParse(Console.ReadLine(), out value)) 
+            { 
+                Console.WriteLine("Invalid input. Please enter a number."); 
+            } 
+            return value; 
+        } 
+    } 
+     
+    class Stack 
+    { 
+        private const int MaxSize = 10; 
+        private int[] items;     private int top; 
+     
+        public Stack() 
+        { 
+            items = new int[MaxSize];         top = -1; 
+        } 
+     
+        public void Push(int value) 
+        { 
+            if (top == MaxSize - 1) 
+            { 
+                Console.WriteLine("Stack overflow! Cannot push more elements.");             return; 
+            } 
+     
+            items[++top] = value; 
+            Console.WriteLine($"Pushed element: {value}"); 
+        } 
+     
+        public int Pop() 
+        { 
+            if (top == -1) 
+            { 
+                Console.WriteLine("Stack underflow! Cannot pop from an empty stack.");             return -1; // Return a sentinel value indicating underflow 
+            } 
+     
+            int poppedValue = items[top--];         return poppedValue; 
+        } 
+     
+        public void Display() 
+        { 
+            if (top == -1) 
+            { 
+                Console.WriteLine("Stack is empty.");             return; 
+            } 
+     
+            Console.WriteLine("Stack elements:");         for (int i = top; i >= 0; i--) 
+            { 
+                Console.WriteLine(items[i]); 
+            } 
+        } 
+    } 
+    </p>
+<h4>calculator for Addition</h4>
+<p>
+    using System; class Calculator 
+    {     static void Main() 
+        { 
+            Console.WriteLine("Simple Arithmetic Calculator"); 
+            Console.WriteLine("Supported Operations: +, -, *, /, %"); 
+            // Read operator from the user         Console.Write("Enter operator: "); 
+            char operation = Console.ReadKey().KeyChar; 
+            Console.WriteLine(); // Move to the next line 
+            // Read operands from the user 
+            Console.Write("Enter first operand: "); 
+            double operand1 = Convert.ToDouble(Console.ReadLine());         Console.Write("Enter second operand: ");         double operand2 = Convert.ToDouble(Console.ReadLine()); 
+            // Perform the selected operation         double result = 0;         switch (operation) 
+            {             case '+': 
+                    result = operand1 + operand2;                 break;             case '-': 
+                    result = operand1 - operand2;                 break;             case '*': 
+                    result = operand1 * operand2;                 break; 
+     
+     
+                
+      case '/':                 if (operand2 != 0) 
+                    { 
+                        result = operand1 / operand2; 
+                    }                 else 
+                    { 
+                        Console.WriteLine("Error: Division by zero is not allowed.");                     return; 
+                    }                 break;             case '%': 
+                    if (operand2 != 0) 
+                    { 
+                        result = operand1 % operand2; 
+                    }                 else 
+                    { 
+                        Console.WriteLine("Error: Modulo by zero is not allowed.");                     return; 
+                    }                 break;             default: 
+                    Console.WriteLine("Error: Unsupported operator.");                 return; 
+            } 
+            // Display the result 
+            Console.WriteLine($"Result: {operand1} {operation} {operand2} = {result}"); 
+        } 
+    } 
+     
+</p>
+<h4>Armstrong</h4>
+<p>using System;
+    class ArmstrongNumbers
+    {
+     static void Main()
+     {
+     Console.WriteLine("Armstrong Numbers between 1 and 1000:");
+     for (int number = 1; number <= 1000; number++)
+     {
+     if (IsArmstrongNumber(number))
+     {
+     Console.WriteLine(number);
+     }
+     }
+    
+    }
+     static bool IsArmstrongNumber(int num)
+     {
+     int originalNum = num;
+     int sum = 0;
+     int numDigits = CountDigits(num);
+     while (num > 0)
+    
+    {
+     int digit = num % 10;
+     sum += (int)Math.Pow(digit, numDigits);
+     num /= 10;
+     }
+     return sum == originalNum;
+     }
+     static int CountDigits(int num)
+     {
+     int count = 0;
+     while (num > 0)
+     {
+     num /= 10;
+     count++;
+     }
+     return count;
+     }
+    }</p>
+<h4>list all substrings </h4>
+<p>using System;
+    class Program
+    {
+     static void Main()
+     {
+     Console.Write("Enter a string: ");
+     string inputString = Console.ReadLine();
+     ListAllSubstrings(inputString);
+     Console.ReadLine(); // To keep the console window open
+     }
+     static void ListAllSubstrings(string input)
+     {
+     Console.WriteLine("All substrings of the given string:");
+     for (int i = 0; i < input.Length; i++)
+     {
+     for (int j = i + 1; j <= input.Length; j++)
+     {
+     string substring = input.Substring(i, j - i);
+     Console.WriteLine(substring);
+     }
+     }
+     }
+    }
+    </p>
+    <h4>Division by Zero </h4>
+    <p>using System;
+        class Program
+        {
+         static void Main()
+         {
+         // Division by Zero Exception
+         try
+         {
+         int numerator = 10;
+         int denominator = 0;
+         int result = numerator / denominator;
+         Console.WriteLine("Result of division: " + result);
+         }
+         catch (DivideByZeroException ex)
+         {
+         Console.WriteLine("Division by Zero Exception: " + ex.Message);
+         }
+         // Index Out of Range Exception
+         try
+         {
+         int[] numbers = { 1, 2, 3, 4, 5 };
+         int index = 10; // Try changing this index to see the exception
+         int value = numbers[index];
+         Console.WriteLine("Value at index " + index + ": " + value);
+         }
+         catch (IndexOutOfRangeException ex)
+         {
+         Console.WriteLine("Index Out of Range Exception: " + ex.Message);
+         }
+         Console.ReadLine();
+         }
+        }
+        </p>
+      <h4>Program to add complex numbers</h4> 
+<p>using System;
+    class Complex
+    {
+     private double real;
+     private double imaginary;
+     // Parameterized constructor
+     public Complex(double real, double imaginary)
+     {
+     this.real = real;
+     this.imaginary = imaginary;
+     }
+     // Overloading the + operator
+     public static Complex operator +(Complex c1, Complex c2)
+     {
+     double realSum = c1.real + c2.real;
+     double imagSum = c1.imaginary + c2.imaginary;
+     return new Complex(realSum, imagSum);
+     }
+     // Method to display the complex number
+     public void Display()
+     {
+     Console.WriteLine($"{real} + {imaginary}i");
+     }
+    }
+    class Program
+    {
+     static void Main()
+     {
+     // Reading the first complex number
+     Console.WriteLine("Enter the first complex number:");
+     Console.Write("Real part: ");
+     double real1 = double.Parse(Console.ReadLine());
+     Console.Write("Imaginary part: ");
+     double imaginary1 = double.Parse(Console.ReadLine());
+     Complex complex1 = new Complex(real1, imaginary1);
+     // Reading the second complex number
+     Console.WriteLine("\nEnter the second complex number:");
+     Console.Write("Real part: ");
+     double real2 = double.Parse(Console.ReadLine());
+     Console.Write("Imaginary part: ");
+     double imaginary2 = double.Parse(Console.ReadLine());
+     Complex complex2 = new Complex(real2, imaginary2);
+    // Performing addition using overloaded + operator
+     Complex result = complex1 + complex2;
+     // Displaying the result
+     Console.WriteLine("\nResult of addition:");
+     complex1.Display();
+     Console.Write(" + ");
+     complex2.Display();
+     Console.Write(" = ");
+     result.Display();
+     }
+    }
+    </p>
+<h4>class named shape</h4>
+<p>using System;
+    // Base class
+    class Shape
+    {
+     public virtual void Draw()
+     {
+     Console.WriteLine("Drawing a shape");
+     }
+     public virtual void Erase()
+     {
+     Console.WriteLine("Erasing a shape");
+     }
+    }
+    // Subclass Circle
+    class Circle : Shape
+    {
+     public override void Draw()
+     {
+     Console.WriteLine("Drawing a circle");
+     }
+     public override void Erase()
+     {
+     Console.WriteLine("Erasing a circle");
+     }
+    }
+    // Subclass Triangle
+    class Triangle : Shape
+    {
+     public override void Draw()
+     {
+     Console.WriteLine("Drawing a triangle");
+     }
+     public override void Erase()
+     {
+     Console.WriteLine("Erasing a triangle");
+     }
+    }
+    // Subclass Square
+    class Square : Shape
+    {
+     public override void Draw()
+     {
+     Console.WriteLine("Drawing a square");
+     }
+     public override void Erase()
+     {
+     Console.WriteLine("Erasing a square");
+     }
+    }
+    class Program
+    {
+     static void Main()
+     {
+     // Create instances of the subclasses
+     Shape circle = new Circle();
+     Shape triangle = new Triangle();
+     Shape square = new Square();
+     // Demonstrate polymorphism by calling Draw() and Erase() methods
+     Console.WriteLine("Demonstrating polymorphism:");
+     DrawAndErase(circle);
+     DrawAndErase(triangle);
+     DrawAndErase(square);
+     }
+     // Common interface using polymorphism
+     static void DrawAndErase(Shape shape)
+     {
+     shape.Draw();
+     shape.Erase();
+     Console.WriteLine(); // Add a newline for better readability
+     }
+    }
+    </p>
+<h4>Code block - Example of an abstract class</h4>
+<p>abstract class Shape
+    {
+     // Abstract methods to calculate area and perimeter
+     public abstract double CalculateArea();
+     public abstract double CalculatePerimeter();
+    }
+    // Derived class for a Circle
+    class Circle : Shape
+    {
+     public double Radius { get; set; }
+     public override double CalculateArea()
+     {
+     return Math.PI * Radius * Radius;
+     }
+    public override double CalculatePerimeter()
+     {
+     return 2 * Math.PI * Radius;
+     }
+    }
+    // Derived class for a Rectangle
+    class Rectangle : Shape
+    {
+     public double Width { get; set; }
+     public double Height { get; set; }
+     public override double CalculateArea()
+     {
+     return Width * Height;
+     }
+     public override double CalculatePerimeter()
+     {
+     return 2 * (Width + Height);
+     }
+    }
+    // Derived class for a Triangle
+    class Triangle : Shape
+    {
+     public double Side1 { get; set; }
+     public double Side2 { get; set; }
+     public double Side3 { get; set; }
+     public override double CalculateArea()
+     {
+     // Implementing the area calculation using Heron's formula
+     double s = (Side1 + Side2 + Side3) / 2;
+     return Math.Sqrt(s * (s - Side1) * (s - Side2) * (s - Side3));
+     }
+     public override double CalculatePerimeter()
+     {
+     return Side1 + Side2 + Side3;
+     }
+    }
+    // In the main program, we can create instances of these classes and utilize their functionalities.
+    class Program
+    {
+     static void Main(string[] args)
+     {
+     Circle circle = new Circle { Radius = 5 };
+     Rectangle rectangle = new Rectangle { Width = 6, Height = 4 };
+     Triangle triangle = new Triangle { Side1 = 3, Side2 = 4, Side3 = 5 };
+     Console.WriteLine("Circle Area: " + circle.CalculateArea());
+     Console.WriteLine("Circle Perimeter: " + circle.CalculatePerimeter());
+     Console.WriteLine("Rectangle Area: " + rectangle.CalculateArea());
+     Console.WriteLine("Rectangle Perimeter: " + rectangle.CalculatePerimeter());
+     Console.WriteLine("Triangle Area: " + triangle.CalculateArea());
+     Console.WriteLine("Triangle Perimeter: " + triangle.CalculatePerimeter());
+     Console.ReadKey();
+     }
+    }</p>
+<h4> Define Resizable interface</h4>
+<p>public interface Resizable
+    {
+     void resizeWidth(int width);
+     void resizeHeight(int height);
+    }
+    // Implement Resizable interface in Rectangle class
+    public class Rectangle : Resizable
+    {
+     private int width;
+     private int height;
+     // Constructor to initialize width and height
+     public Rectangle(int width, int height)
+     {
+     this.width = width;
+     this.height = height;
+     }
+     // Implement resizeWidth method from Resizable interface
+     public void resizeWidth(int newWidth)
+     {
+     if (newWidth > 0)
+     {
+     width = newWidth;
+     Console.WriteLine($"Width resized to: {width}");
+     }
+     else
+     {
+     Console.WriteLine("Width must be greater than 0.");
+     }
+     }
+     // Implement resizeHeight method from Resizable interface
+     public void resizeHeight(int newHeight)
+     {
+     if (newHeight > 0)
+     {
+     height = newHeight;
+     Console.WriteLine($"Height resized to: {height}");
+     }
+     else
+     {
+     Console.WriteLine("Height must be greater than 0.");
+     }
+     }
+     // Method to display current dimensions of the rectangle
+     public void DisplayDimensions()
+     {
+     Console.WriteLine($"Current Dimensions: Width = {width}, Height = {height}");
+     }
+    }
+    // Main class to test the implementation
+    class Program
+    {
+     static void Main()
+     {
+     // Create a Rectangle object
+     Rectangle myRectangle = new Rectangle(5, 8);
+     // Display current dimensions
+     Console.WriteLine("Initial Dimensions:");
+     myRectangle.DisplayDimensions();
+     // Resize width and height
+     myRectangle.resizeWidth(10);
+     myRectangle.resizeHeight(12);
+     // Display dimensions after resizing
+     Console.WriteLine("\nDimensions after resizing:");
+     myRectangle.DisplayDimensions();
+     }
+    }</p>
+
+
+
+</body>
+</html>
