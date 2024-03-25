@@ -13,7 +13,8 @@
             public static void Main() 
             { 
                 int[,] arr = new int[8, 8]; 
-                Console.WriteLine("Pascal Triangle : ");         for (int i = 0; i < 5; i++) 
+                Console.WriteLine("Pascal Triangle : ");        
+                for (int i = 0; i < 5; i++) 
                 { 
                     for (int k = 5; k > i; k--) 
                     {    
@@ -38,28 +39,26 @@
     </pre>
 
     <h4>Floyds Triangle</h4>
-    <p>
+    <pre>
         using System; 
  
 class FloydsTriangle 
 { 
     static void Main() 
     { 
-        Console.WriteLine("Enter the number of rows for Floyd's Triangle:");         int numRows = Convert.ToInt32(Console.ReadLine()); 
- 
-        // Create a jagged array to store Floyd's Triangle         int[][] triangle = new int[numRows][]; 
- 
-        // Populate the jagged array with Floyd's Triangle values         int currentNumber = 1;         for (int i = 0; i < numRows; i++) 
+        Console.WriteLine("Enter the number of rows for Floyd's Triangle:");        
+        int numRows = Convert.ToInt32(Console.ReadLine()); 
+        int[][] triangle = new int[numRows][]; 
+        int currentNumber = 1;       
+        for (int i = 0; i < numRows; i++) 
         { 
-            triangle[i] = new int[i + 1]; // Allocate space for each row 
- 
+            triangle[i] = new int[i + 1]; 
             for (int j = 0; j <= i; j++) 
             { 
                 triangle[i][j] = currentNumber++; 
             } 
         } 
  
-        // Print Floyd's Triangle 
         Console.WriteLine("Floyd's Triangle:"); 
  
         for (int i = 0; i < numRows; i++) 
@@ -72,29 +71,24 @@ class FloydsTriangle
         } 
     } 
 } 
-</p>
+</pre>
 <h4>read a text file and copy the file contents </h4>
-<p>using System; 
+<pre>using System; 
     using System.IO; 
      
     class FileCopy 
     { 
         static void Main () 
         { 
-            Console.WriteLine("Enter the path of the source text file:");         string sourceFilePath = Console.ReadLine(); 
-     
-            Console.WriteLine("Enter the path of the destination text file:");         string destinationFilePath = Console.ReadLine(); 
+            Console.WriteLine("Enter the path of the source text file:");
+            string sourceFilePath = Console.ReadLine(); 
+            Console.WriteLine("Enter the path of the destination text file:");      
+            string destinationFilePath = Console.ReadLine(); 
              try 
             { 
-                // Ensure the destination directory exists 
                 Directory.CreateDirectory(Path.GetDirectoryName(destinationFilePath)); 
-     
-                // Read the contents of the source file 
                 string fileContents = File.ReadAllText(sourceFilePath); 
-     
-                // Write the contents to the destination file 
                 File.WriteAllText(destinationFilePath, fileContents); 
-     
                 Console.WriteLine("File copy successful!"); 
             } 
             catch (Exception ex) 
@@ -103,9 +97,9 @@ class FloydsTriangle
             } 
         } 
     } 
-    </p>
+    </pre>
     <h4>Push and Pop</h4>
-<p>using System; 
+<pre>using System; 
  
     class StackImplementation 
     { 
@@ -125,20 +119,24 @@ class FloydsTriangle
                 int choice = GetChoice(); 
      
                 switch (choice) 
-                {                 case 1: 
-                        Console.WriteLine("Enter the value to push:");                     int valueToPush = GetValue(); 
-                        stack.Push(valueToPush);                     break; 
+                {    case 1: 
+                        Console.WriteLine("Enter the value to push:");     
+                        int valueToPush = GetValue(); 
+                        stack.Push(valueToPush);                 
+                        break; 
                      case 2: 
                         int poppedValue = stack.Pop(); 
                         if (poppedValue != -1) 
-                            Console.WriteLine($"Popped element: {poppedValue}");                     break; 
-                     case 3:                     stack.Display(); 
+                            Console.WriteLine($"Popped element: {poppedValue}");         
+                        break; 
+                     case 3:                     
+                        stack.Display(); 
                         break; 
                      case 4: 
                         Console.WriteLine("Exiting the program."); 
                         Environment.Exit(0); 
                         break; 
-                     default: 
+                        default: 
                         Console.WriteLine("Invalid choice. Please choose a valid option.");                     break; 
                 } 
             } 
@@ -167,18 +165,21 @@ class FloydsTriangle
     class Stack 
     { 
         private const int MaxSize = 10; 
-        private int[] items;     private int top; 
+        private int[] items;     
+        private int top; 
      
         public Stack() 
         { 
-            items = new int[MaxSize];         top = -1; 
+            items = new int[MaxSize];        
+            top = -1; 
         } 
      
         public void Push(int value) 
         { 
             if (top == MaxSize - 1) 
             { 
-                Console.WriteLine("Stack overflow! Cannot push more elements.");             return; 
+                Console.WriteLine("Stack overflow! Cannot push more elements.");         
+                return; 
             } 
      
             items[++top] = value; 
@@ -189,77 +190,97 @@ class FloydsTriangle
         { 
             if (top == -1) 
             { 
-                Console.WriteLine("Stack underflow! Cannot pop from an empty stack.");             return -1; // Return a sentinel value indicating underflow 
+                Console.WriteLine("Stack underflow! Cannot pop from an empty stack.");         
+                return -1; 
             } 
      
-            int poppedValue = items[top--];         return poppedValue; 
+            int poppedValue = items[top--];        
+            return poppedValue; 
         } 
      
         public void Display() 
         { 
             if (top == -1) 
             { 
-                Console.WriteLine("Stack is empty.");             return; 
+                Console.WriteLine("Stack is empty.");              
+                return; 
             } 
      
-            Console.WriteLine("Stack elements:");         for (int i = top; i >= 0; i--) 
+            Console.WriteLine("Stack elements:");        
+            for (int i = top; i >= 0; i--) 
             { 
                 Console.WriteLine(items[i]); 
             } 
         } 
     } 
-    </p>
+    </pre>
 <h4>calculator for Addition</h4>
-<p>
+<pre>
     using System; class Calculator 
     {     static void Main() 
         { 
             Console.WriteLine("Simple Arithmetic Calculator"); 
             Console.WriteLine("Supported Operations: +, -, *, /, %"); 
-            // Read operator from the user         Console.Write("Enter operator: "); 
+            Console.Write("Enter operator: "); 
             char operation = Console.ReadKey().KeyChar; 
-            Console.WriteLine(); // Move to the next line 
-            // Read operands from the user 
+            Console.WriteLine();
             Console.Write("Enter first operand: "); 
-            double operand1 = Convert.ToDouble(Console.ReadLine());         Console.Write("Enter second operand: ");         double operand2 = Convert.ToDouble(Console.ReadLine()); 
-            // Perform the selected operation         double result = 0;         switch (operation) 
-            {             case '+': 
-                    result = operand1 + operand2;                 break;             case '-': 
-                    result = operand1 - operand2;                 break;             case '*': 
-                    result = operand1 * operand2;                 break; 
+            double operand1 = Convert.ToDouble(Console.ReadLine());        
+            Console.Write("Enter second operand: ");        
+            double operand2 = Convert.ToDouble(Console.ReadLine()); 
+            double result = 0;       
+            switch (operation) 
+            {   case '+': 
+                    result = operand1 + operand2;        
+                    break;          
+                case '-': 
+                    result = operand1 - operand2;             
+                    break;           
+                case '*': 
+                    result = operand1 * operand2;              
+                    break; 
      
      
                 
-      case '/':                 if (operand2 != 0) 
+                case '/':                
+                    if (operand2 != 0) 
                     { 
                         result = operand1 / operand2; 
                     }                 else 
                     { 
-                        Console.WriteLine("Error: Division by zero is not allowed.");                     return; 
-                    }                 break;             case '%': 
+                        Console.WriteLine("Error: Division by zero is not allowed.");                    
+                return; 
+                    }                
+                    break;            
+                case '%': 
                     if (operand2 != 0) 
                     { 
                         result = operand1 % operand2; 
                     }                 else 
                     { 
-                        Console.WriteLine("Error: Modulo by zero is not allowed.");                     return; 
-                    }                 break;             default: 
-                    Console.WriteLine("Error: Unsupported operator.");                 return; 
+                        Console.WriteLine("Error: Modulo by zero is not allowed.");                    
+                return; 
+                    }                
+                    break;             
+                default: 
+                    Console.WriteLine("Error: Unsupported operator.");                 
+                    return; 
             } 
-            // Display the result 
             Console.WriteLine($"Result: {operand1} {operation} {operand2} = {result}"); 
         } 
     } 
      
-</p>
+</pre>
 <h4>Armstrong</h4>
-<p>using System;
+<pre>using System;
     class ArmstrongNumbers
     {
      static void Main()
      {
      Console.WriteLine("Armstrong Numbers between 1 and 1000:");
-     for (int number = 1; number <= 1000; number++)
+     for (int number = 1; 
+     number <= 1000; 
+     number++)
      {
      if (IsArmstrongNumber(number))
      {
@@ -292,9 +313,10 @@ class FloydsTriangle
      }
      return count;
      }
-    }</p>
+    }
+     </pre>
 <h4>list all substrings </h4>
-<p>using System;
+<pre>using System;
     class Program
     {
      static void Main()
@@ -302,7 +324,7 @@ class FloydsTriangle
      Console.Write("Enter a string: ");
      string inputString = Console.ReadLine();
      ListAllSubstrings(inputString);
-     Console.ReadLine(); // To keep the console window open
+     Console.ReadLine(); 
      }
      static void ListAllSubstrings(string input)
      {
@@ -317,9 +339,9 @@ class FloydsTriangle
      }
      }
     }
-    </p>
+    </pre>
     <h4>Division by Zero </h4>
-    <p>using System;
+    <pre>using System;
         class Program
         {
          static void Main()
@@ -351,9 +373,9 @@ class FloydsTriangle
          Console.ReadLine();
          }
         }
-        </p>
+        </pre>
       <h4>Program to add complex numbers</h4> 
-<p>using System;
+<pre>using System;
     class Complex
     {
      private double real;
@@ -406,9 +428,9 @@ class FloydsTriangle
      result.Display();
      }
     }
-    </p>
+    </pre>
 <h4>class named shape</h4>
-<p>using System;
+<pre>using System;
     // Base class
     class Shape
     {
@@ -479,9 +501,9 @@ class FloydsTriangle
      Console.WriteLine(); // Add a newline for better readability
      }
     }
-    </p>
+    </pre>
 <h4>Code block - Example of an abstract class</h4>
-<p>abstract class Shape
+<pre>abstract class Shape
     {
      // Abstract methods to calculate area and perimeter
      public abstract double CalculateArea();
@@ -547,9 +569,9 @@ class FloydsTriangle
      Console.WriteLine("Triangle Perimeter: " + triangle.CalculatePerimeter());
      Console.ReadKey();
      }
-    }</p>
+    }</pre>
 <h4> Define Resizable interface</h4>
-<p>public interface Resizable
+<pre>public interface Resizable
     {
      void resizeWidth(int width);
      void resizeHeight(int height);
@@ -614,7 +636,7 @@ class FloydsTriangle
      Console.WriteLine("\nDimensions after resizing:");
      myRectangle.DisplayDimensions();
      }
-    }</p>
+    }</pre>
 
 
 
